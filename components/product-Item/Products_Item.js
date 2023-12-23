@@ -7,7 +7,7 @@ const Products_Item = (props) => {
     <Link href={`/indiProduct/${id}`}>
       <div className="p-6 rounded-lg shadow-2xl hover:bg-slate-100 active:scale-95">
       <img
-        className="h-72 rounded w-full md:w-full md:h-52 object-cover object-center mb-6 hover:scale-105 duration-300"
+        className="rounded w-full h-1/2 md:w-full lg:h-52 lg:w-full md:h-36 object-cover object-center mb-6 hover:scale-105 duration-300"
         src={imageUrl}
         alt="content"
       />

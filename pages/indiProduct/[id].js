@@ -86,7 +86,7 @@ const IndividualPage = (props) => {
         <div class="lg:w-4/5 mx-auto flex flex-wrap">
           <img
             alt={name}
-            class="lg:w-1/2 w-full lg:h-full h-64 object-cover object-center rounded"
+            class="lg:w-1/2 w-fit lg:h-full h-64 object-cover object-center rounded"
             src={mediaUrl}
           />
           <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
