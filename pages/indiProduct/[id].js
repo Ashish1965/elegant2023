@@ -35,7 +35,7 @@ const IndividualPage = (props) => {
                 className="btn waves-effect waves-light #e53935 red darken-1 mx-10"
                 onClick={() => {
                   deleteProduct();
-                  router.push("/");
+                  // router.push("/");
                 }}
               >
                 Yes
@@ -78,7 +78,7 @@ const IndividualPage = (props) => {
       M.toast({ html: error, classes: "red" });
       Cookies.remove("user");
       Cookies.remove("token");
-      // router.push("/login");
+      router.push("/login");
     }
     M.toast({ html: res2.message, classes: "green" });
   }
