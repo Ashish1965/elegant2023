@@ -55,7 +55,7 @@ const IndividualPage = (props) => {
       const response = await fetch(`https://elegant2024.vercel.app/api/product/${_id}`, {
         method: "DELETE",
       });
-      const response2 = response.json();
+      const response2 = await response.json();
       
     }
   }
