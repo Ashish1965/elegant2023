@@ -52,7 +52,7 @@ const IndividualPage = (props) => {
       </div>
     );
     async function deleteProduct() {
-      const response = await fetch('https://elegant2024.vercel.app/api/product/${_id}', {
+      const response = await fetch(`https://elegant2024.vercel.app/api/product/${_id}`, {
         method: "DELETE",
       });
       const response2 = response.json();
@@ -60,7 +60,7 @@ const IndividualPage = (props) => {
     }
   }
   async function AddToCart() {
-    const res = await fetch'https://elegant2024.vercel.app/api/cart', {
+    const res = await fetch('https://elegant2024.vercel.app/api/cart', {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
