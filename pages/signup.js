@@ -10,7 +10,7 @@ const signup = () => {
   const [password , setPassword] = useState();
   async function handleSubmit(event){
     event.preventDefault();
-    const res = await fetch(`${baseUrl}/api/signup` , {
+    const res = await fetch('https://elegant2024.vercel.app/api/signup' , {
       method : 'POST' , 
       headers : {
         'Content-Type' : 'application/json'
