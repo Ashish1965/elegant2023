@@ -93,7 +93,7 @@ export async function getServerSideProps(ctx) {
     res.writeHead(302, { Location: "/login" });
     res.end();
   }
-  const res = await fetch(`${baseUrl}/api/orders`, {
+  const res = await fetch('https://elegant2024.vercel.app/api/orders', {
     headers: {
       Authorization: cookie.token,
     },
