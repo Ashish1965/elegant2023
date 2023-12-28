@@ -46,7 +46,7 @@ export default home;
 //   };
 // }
 export async function getServerSideProps() {
-  const res = await fetch(`${baseUrl}/api/products`);
+  const res = await fetch('https://elegant2024.vercel.app/api/products');
   const data = await res.json();
   return {
     props: {
