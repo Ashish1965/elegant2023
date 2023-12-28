@@ -56,7 +56,7 @@ const Cart = (props) => {
   }
   async function handleDelete(pid) {
     window.location.reload();
-    const res = await fetch(`${baseUrl}/api/cart`, {
+    const res = await fetch('https://elegant2024.vercel.app/api/cart', {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -112,7 +112,7 @@ const Cart = (props) => {
   };
   async function handleCheckout() {
     
-    const res = await fetch(`${baseUrl}/api/checkout_sessions`, {
+    const res = await fetch('https://elegant2024.vercel.app/api/checkout_sessions', {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -176,7 +176,7 @@ export async function getServerSideProps(ctx) {
       props: { products: [] },
     };
   }
-  const res = await fetch(`${baseUrl}/api/cart`, {
+  const res = await fetch('https://elegant2024.vercel.app/api/cart', {
     headers: {
       Authorization: token,
     },
