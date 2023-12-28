@@ -56,6 +56,7 @@ const IndividualPage = (props) => {
         method: "DELETE",
       });
       const response2 = await response.json();
+      M.toast({ html: response2.message, classes: "green" });
       
     }
   }
