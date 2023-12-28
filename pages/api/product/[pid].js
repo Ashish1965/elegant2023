@@ -24,7 +24,7 @@ async function deleteProduct(req , res){
     const {pid} = req.query
     try{
         await Product.findByIdAndDelete({_id : pid})
-        res.status(200).json({});
+        res.status(200).json({message : "Product deleted successfully"});
     }catch(err){
         console.log(err);
     }
