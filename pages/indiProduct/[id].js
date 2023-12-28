@@ -33,10 +33,7 @@ const IndividualPage = (props) => {
             <div className="flex px-8 justify-between">
               <button
                 className="btn waves-effect waves-light #e53935 red darken-1 mx-10"
-                onClick={() => {
-                  deleteProduct();
-                  router.push("/");
-                }}
+                onClick={deleteProduct}
               >
                 Yes
               </button>
@@ -58,6 +55,7 @@ const IndividualPage = (props) => {
       const response2 = await response.json();
       M.toast({ html: response2.message, classes: "green" });
       console.log(response2.message);
+      router.push("/");
       
     }
   }
