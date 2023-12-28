@@ -78,7 +78,7 @@ const IndividualPage = (props) => {
       M.toast({ html: error, classes: "red" });
       Cookies.remove("user");
       Cookies.remove("token");
-      router.push("/login");
+      // router.push("/login");
     }
     M.toast({ html: res2.message, classes: "green" });
   }
