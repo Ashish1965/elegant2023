@@ -113,7 +113,7 @@ const Cart = (props) => {
   };
   async function handleCheckout() {
     
-    const res = await fetch(`https://elegant2024.vercel.app/api/checkout_sessions`, {
+    const res = await fetch('https://elegant2024.vercel.app/api/checkout_sessions', {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
