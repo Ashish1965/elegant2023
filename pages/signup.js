@@ -48,6 +48,7 @@ const signup = () => {
               className="w-full h-10 mt-4 p-8 rounded-md border"
               value={name}
               onChange={(e) => setName(e.target.value)}
+                name='Name'
             />
             <input
               type="email"
@@ -55,6 +56,7 @@ const signup = () => {
               className="w-full h-10 mt-4 p-8 rounded-md border"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+                name='email'
             />
 
              <input
@@ -63,6 +65,7 @@ const signup = () => {
               className="w-full h-10 mt-4 p-8 rounded-md border"
               value={password}
           onChange={(e) => setPassword(e.target.value)}
+            name='password'
             />
             <div className="flex flex-col md:flex-row md:justify-between items-center justify-center gap-7">
               <a href="#" className="text-cyan-700">
