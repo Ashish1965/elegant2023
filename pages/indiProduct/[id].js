@@ -254,7 +254,7 @@ const IndividualPage = (props) => {
   );
 };
 export async function getServerSideProps({ params: { id } }) {
-  const res = await fetch('https://elegant2024.vercel.app/api/product/${id}');
+  const res = await fetch(`https://elegant2024.vercel.app/api/product/${id}`);
   const data = await res.json();
   return {
     props: { product: data },
