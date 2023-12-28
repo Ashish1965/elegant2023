@@ -35,7 +35,7 @@ const IndividualPage = (props) => {
                 className="btn waves-effect waves-light #e53935 red darken-1 mx-10"
                 onClick={() => {
                   deleteProduct();
-                  // router.push("/");
+                  
                 }}
               >
                 Yes
