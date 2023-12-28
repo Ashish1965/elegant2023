@@ -113,7 +113,7 @@ const Cart = (props) => {
   };
   async function handleCheckout() {
     
-    const res = await fetch('https://elegant2024.vercel.app/api/checkout_sessions', {
+    const res = await fetch(`https://elegant2024.vercel.app/api/checkout_sessions`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -134,7 +134,9 @@ const Cart = (props) => {
         {products.length != 0 ? (
           
           <div className="flex max-w-screen-2xl items-center justify-center mt-7">
-              <button onClick={handleCheckout} className="flex hover:bg-blue-500 active:scale-95 bg-blue-600 px-10 py-3 rounded-xl text-white font-serif text-xl space-x-3">
+              <button onClick={()=>{
+                handleCheckout();
+              }} className="flex hover:bg-blue-500 active:scale-95 bg-blue-600 px-10 py-3 rounded-xl text-white font-serif text-xl space-x-3">
                 <p>checkout</p>
                 <p>₹{Price}</p>
               </button>
