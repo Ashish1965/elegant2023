@@ -55,7 +55,7 @@ const Cart = (props) => {
     router.push("/login");
   }
   async function handleDelete(pid) {
-    window.location.reload();
+    
     const res = await fetch('https://elegant2024.vercel.app/api/cart', {
       method: "DELETE",
       headers: {
@@ -69,6 +69,7 @@ const Cart = (props) => {
     const res2 = await res.json();
     console.log(res2);
     setCproduct(res2);
+    window.location.reload();
   }
   let Price = 0;
   const CartItems = () => {
