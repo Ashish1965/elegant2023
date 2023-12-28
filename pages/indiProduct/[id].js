@@ -33,7 +33,9 @@ const IndividualPage = (props) => {
             <div className="flex px-8 justify-between">
               <button
                 className="btn waves-effect waves-light #e53935 red darken-1 mx-10"
-                onClick={deleteProduct}
+                onClick={() => {
+                  deleteProduct();
+                }}
               >
                 Yes
               </button>
