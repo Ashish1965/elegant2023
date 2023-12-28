@@ -176,7 +176,7 @@ export async function getServerSideProps(ctx) {
       props: { products: [] },
     };
   }
-  const res = await fetch('https://elegant2024.vercel.app/api/cart', {
+  const res = await fetch(`https://elegant2024.vercel.app/api/cart`, {
     headers: {
       Authorization: token,
     },
