@@ -11,7 +11,7 @@ const login = () => {
   const router = useRouter();
   async function handleSubmit(event) {
     event.preventDefault();
-    const res = await fetch(`${baseUrl}/api/login`, {
+    const res = await fetch('https://elegant2024.vercel.app/api/login', {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -49,6 +49,7 @@ const login = () => {
               value={email}
               autocomplete="off"
               onChange={(e) => setEmail(e.target.value)}
+                name='email'
             />
 
              <input
@@ -58,6 +59,7 @@ const login = () => {
               value={password}
               autocomplete="off"
           onChange={(e) => setPassword(e.target.value)}
+            name='password'
             />
             <div className="flex flex-col md:flex-row md:justify-between items-center justify-center gap-7">
               <a href="#" className="text-cyan-700">
