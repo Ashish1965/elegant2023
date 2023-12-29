@@ -120,7 +120,7 @@ const Cart = (props) => {
         Authorization: token,
       },
       body: JSON.stringify({
-        Authorization: token,
+
       }),
     })
     const res2 = await res.json();
