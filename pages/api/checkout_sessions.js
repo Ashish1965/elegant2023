@@ -14,7 +14,7 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 export default async (req, res) => {
     if (req.method === 'POST') {
-    const { authorization } = req.headers;
+    const { authorization } = req.body;
     console.log(authorization)
     if (!authorization) {
       return res.status(401).json({ error: "You must logged-in" });
