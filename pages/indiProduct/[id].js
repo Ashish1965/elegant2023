@@ -21,6 +21,16 @@ const IndividualPage = (props) => {
   }, []);
   const { name, price, mediaUrl, description, _id } = props.product;
   function getModal() {
+    async function deleteProduct() {
+      const response = await fetch(`https://elegant2024.vercel.app/api/product/${_id}`, {
+        method: "DELETE",
+      });
+      const response2 = await response.json();
+      M.toast({ html: response2.message, classes: "green" });
+      console.log(response2.message);
+      router.push("/");
+      
+    }
     return (
       <div id="modal1" className="modal max-w-[30%] rounded-xl" ref={modalRef}>
         <div className="flex flex-col">
@@ -50,16 +60,7 @@ const IndividualPage = (props) => {
         </div>
       </div>
     );
-    async function deleteProduct() {
-      const response = await fetch(`https://elegant2024.vercel.app/api/product/${_id}`, {
-        method: "DELETE",
-      });
-      const response2 = await response.json();
-      M.toast({ html: response2.message, classes: "green" });
-      console.log(response2.message);
-      router.push("/");
-      
-    }
+    
   }
   async function AddToCart() {
     const res = await fetch('https://elegant2024.vercel.app/api/cart', {
