@@ -117,10 +117,10 @@ const Cart = (props) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: token,
+        
       },
       body: JSON.stringify({
-
+       Authorization: token,
       }),
     })
     const res2 = await res.json();
