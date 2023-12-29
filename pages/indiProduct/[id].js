@@ -196,6 +196,7 @@ const IndividualPage = (props) => {
                 <div class="relative">
                   <input
                     name='quantity'
+                    id='quantity'
                     type="number"
                     min={1}
                     placeholder="Quantity"
