@@ -43,7 +43,7 @@ const create = () => {
     data.append("upload_preset", "mystore");
     data.append("cloud_name", "dhmqusghb");
     const res = await fetch(
-      "https://api.cloudinary.com/v1_1/dhmqusghb/image/upload",
+      'https://api.cloudinary.com/v1_1/dhmqusghb/image/upload',
       {
         method: "POST",
         body: data,
