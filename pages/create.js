@@ -14,6 +14,19 @@ const create = () => {
     e.preventDefault();
     try {
       const MediaUrl = await imageUpload();
+      let stringToAdd = "s";
+
+      // Position to add string
+      let indexPosition = 4;
+
+      // Using slice method to split string
+      let newMediaUrl =
+        MediaUrl.slice(0, indexPosition) +
+        stringToAdd +
+        MediaUrl.slice(indexPosition);
+
+      // Display output
+      console.log(newMediaUrl);
       const res = await fetch(`https://elegant2024.vercel.app/api/products`, {
         method: "POST",
         headers: {
@@ -22,7 +35,7 @@ const create = () => {
         body: JSON.stringify({
           name: name,
           price: price,
-          mediaUrl: MediaUrl,
+          mediaUrl: newMediaUrl,
           description: description,
         }),
       });
