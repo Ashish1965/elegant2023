@@ -195,6 +195,7 @@ const IndividualPage = (props) => {
                 <span class="mr-3">Quantity</span>
                 <div class="relative">
                   <input
+                    name='quantity'
                     type="number"
                     min={1}
                     placeholder="Quantity"
