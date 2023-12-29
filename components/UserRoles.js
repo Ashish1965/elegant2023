@@ -8,7 +8,7 @@ function UserRoles() {
     fetchUser();
   }, []);
   const fetchUser = async () => {
-    const res = await fetch(`https://elegant2024.vercel.app/api/users`, {
+    const res = await fetch('https://elegant2024.vercel.app/api/users', {
       headers: {
         Authorization: cookie.token,
       },
@@ -18,7 +18,7 @@ function UserRoles() {
     setUsers(res2);
   };
   const handleRole = async (id, role) => {
-    const res = await fetch(`https://elegant2024.vercel.app/api/users`, {
+    const res = await fetch('https://elegant2024.vercel.app/api/users', {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
