@@ -63,9 +63,7 @@ function UserRoles() {
                     <h2 className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">
                       {item.name}
                     </h2>
-                    
-                    <p className="leading-relaxed mb-3">{item.role}</p>
-                    
+                     <p className="leading-relaxed mb-3">{item.role}</p>
                     <button
                       className="px-5 py-3 bg-blue-600  text-white hover:bg-white hover:text-blue-600 border active:scale-95 rounded-lg duration-200"
                       onClick={() => handleRole(item._id, item.role)}
