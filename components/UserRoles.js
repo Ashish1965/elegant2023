@@ -63,9 +63,7 @@ function UserRoles() {
                     <h2 className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">
                       {item.name}
                     </h2>
-                    // <h1 className="title-font text-lg font-medium text-gray-900 mb-3">
-                    //   {item.email}
-                    // </h1>
+                    
                     <p className="leading-relaxed mb-3">{item.role}</p>
                     
                     <button
