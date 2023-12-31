@@ -52,7 +52,6 @@ export const Account = (props) => {
                   class="w-32 h-32 bg-gray-300 rounded-full mb-4 shrink-0"
                 ></img>
                 <h1 class="text-xl font-bold">{user.name}</h1>
-                // <p class="text-gray-600">{user.email}</p>
                 <div class="mt-6 flex flex-wrap gap-4 justify-center">
                   <a
                     href="#"
