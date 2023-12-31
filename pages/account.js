@@ -59,7 +59,6 @@ export const Account = (props) => {
                   >
                     Edit
                   </a>
-                  
                 </div>
               </div>
               <hr class="my-6 border-t border-gray-300" />
