@@ -22,7 +22,11 @@ const fetchUserCart = Authenticated(async(req , res)=>{
     
         const cart = await Cart.findOne({user : req.userId})
                      .populate("products.product")
-        res.status(200).json(cart.products)
+    const products = cart.products;
+  const result = products.filter((product)=>{
+    return product.product !== null;
+  });
+        res.status(200).json(result);
     
 
 })
