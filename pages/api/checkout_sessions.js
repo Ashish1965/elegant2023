@@ -52,8 +52,8 @@ export default async (req, res) => {
       const session = await stripe.checkout.sessions.create({
         line_items: lineItems,
         mode: "payment",
-        success_url: `https://localhost:3000/cart?success=true`,
-        cancel_url: `https://localhost:3000/?canceled=true`,
+        success_url: `https://elegant2024.vercel.app/cart?success=true`,
+        cancel_url: `https://elegant2024.vercel.app/?canceled=true`,
       });
       
       
