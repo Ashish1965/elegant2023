@@ -21,7 +21,7 @@ const Cart = (props) => {
     if (query.get("success")) {
       console.log("Order placed! You will receive an email confirmation.")
       router.push("/cart");
-      router.reload();
+      router.push("/cart");
     }
 
     if (query.get("canceled")) {
