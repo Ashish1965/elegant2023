@@ -155,7 +155,7 @@ const Cart = (props) => {
     );
   };
   return (
-    <div>
+    <div onLoad={handleReload}>
       <section class="text-gray-600 body-font">
         <div class="container px-5 py-10 mx-auto">
           <div class="flex flex-wrap w-full mb-20">
