@@ -134,7 +134,7 @@ const Cart = (props) => {
               className="flex hover:bg-blue-500 active:scale-95 bg-blue-600 px-10 py-3 rounded-xl text-white font-serif text-xl space-x-3"
             >
               <p>checkout</p>
-              <p>₹{Price / 3}</p>
+              <p>₹{Price}</p>
             </button>
           </div>
         ) : (
