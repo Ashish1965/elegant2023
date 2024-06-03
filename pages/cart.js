@@ -1,15 +1,13 @@
-import React, { useState , useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import baseUrl from "@/helpers/baseUrl";
 import { parseCookies } from "nookies";
 import Cookies from "js-cookie";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import dynamic from "next/dynamic";
-import { loadStripe } from '@stripe/stripe-js';
+import { loadStripe } from "@stripe/stripe-js";
 
-const stripe = loadStripe(
-  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
-);
+const stripe = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
 
 const Cart = (props) => {
   const { error, products } = props;
@@ -17,19 +15,17 @@ const Cart = (props) => {
   const { token } = parseCookies();
   const [cproduct, setCproduct] = useState(products);
 
-  const handleReload = () => {
-    router.reload();
-  };
-  
   useEffect(() => {
     // Check to see if this is a redirect back from Checkout
     const query = new URLSearchParams(window.location.search);
-    if (query.get('success')) {
-      console.log('Order placed! You will receive an email confirmation.');
+    if (query.get("success")) {
+      console.log("Order placed! You will receive an email confirmation.");
     }
 
-    if (query.get('canceled')) {
-      console.log('Order canceled -- continue to shop around and checkout when you’re ready.');
+    if (query.get("canceled")) {
+      console.log(
+        "Order canceled -- continue to shop around and checkout when you’re ready."
+      );
     }
   }, []);
 
@@ -59,8 +55,8 @@ const Cart = (props) => {
     router.push("/login");
   }
   async function handleDelete(pid) {
-    
-    const res = await fetch('https://elegant2024.vercel.app/api/cart', {
+    window.location.reload();
+    const res = await fetch(`https://elegant2024.vercel.app/api/cart`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -73,7 +69,6 @@ const Cart = (props) => {
     const res2 = await res.json();
     console.log(res2);
     setCproduct(res2);
-    window.location.reload();
   }
   let Price = 0;
   const CartItems = () => {
@@ -83,32 +78,32 @@ const Cart = (props) => {
           Price = Price + item.quantity * item.product.price;
           return (
             <Link href={`/indiProduct/${item.product._id}`}>
-            <div class="xl:w-full md:w-full p-4" key={item.product._id}>
-              <div class="bg-gray-100 p-6 rounded-lg hover:bg-blue-50 duration-200 active:scale-95">
-                <img
-                  class="h-52 rounded w-full object-cover object-center mb-6 hover:scale-105 duration-200"
-                  src={item.product.mediaUrl}
-                  alt="content"
-                />
-                <h3 class="tracking-widest text-indigo-500 text-xs font-medium title-font">
-                  {item.product.name}
-                </h3>
-                <h2 class="text-lg text-gray-900 font-medium title-font mb-4">
-                  Quantity - {item.quantity}
-                </h2>
-                <p class="leading-relaxed text-lg mb-3">
-                  Total Price - ₹{item.quantity * item.product.price}
-                </p>
-                <button
-                  className="btn red"
-                  onClick={() => {
-                    handleDelete(item.product._id);
-                  }}
-                >
-                  Remove
-                </button>
+              <div class="xl:w-full md:w-full p-4" key={item.product._id}>
+                <div class="bg-gray-100 p-6 rounded-lg hover:bg-blue-50 duration-200 active:scale-95">
+                  <img
+                    class="h-52 rounded w-full object-cover object-center mb-6 hover:scale-105 duration-200"
+                    src={item.product.mediaUrl}
+                    alt="content"
+                  />
+                  <h3 class="tracking-widest text-indigo-500 text-xs font-medium title-font">
+                    {item.product.name}
+                  </h3>
+                  <h2 class="text-lg text-gray-900 font-medium title-font mb-4">
+                    Quantity - {item.quantity}
+                  </h2>
+                  <p class="leading-relaxed text-lg mb-3">
+                    Total Price - ₹{item.quantity * item.product.price}
+                  </p>
+                  <button
+                    className="btn red"
+                    onClick={() => {
+                      handleDelete(item.product._id);
+                    }}
+                  >
+                    Remove
+                  </button>
+                </div>
               </div>
-            </div>
             </Link>
           );
         })}
@@ -116,19 +111,16 @@ const Cart = (props) => {
     );
   };
   async function handleCheckout() {
-    
     const res = await fetch(`https://elegant2024.vercel.app/api/checkout_sessions`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         Authorization: token,
       },
-      body: JSON.stringify({
-       Authorization: token,
-      }),
-    })
+      body: JSON.stringify({}),
+    });
     const res2 = await res.json();
-    
+
     // console.log(res2.url);
     router.push(res2.url);
   }
@@ -136,16 +128,15 @@ const Cart = (props) => {
     return (
       <div>
         {products.length != 0 ? (
-          
           <div className="flex max-w-screen-2xl items-center justify-center mt-7">
-              <button onClick={()=>{
-                handleCheckout();
-              }} className="flex hover:bg-blue-500 active:scale-95 bg-blue-600 px-10 py-3 rounded-xl text-white font-serif text-xl space-x-3">
-                <p>checkout</p>
-                <p>₹{Price}</p>
-              </button>
-            </div>
-          
+            <button
+              onClick={handleCheckout}
+              className="flex hover:bg-blue-500 active:scale-95 bg-blue-600 px-10 py-3 rounded-xl text-white font-serif text-xl space-x-3"
+            >
+              <p>checkout</p>
+              <p>₹{Price / 3}</p>
+            </button>
+          </div>
         ) : (
           <div className="text-lg font-medium min-h-[52vh]">
             Your Cart is Empty
@@ -194,7 +185,7 @@ export async function getServerSideProps(ctx) {
       props: { error: products.error },
     };
   }
-  console.log("products", products);
+  // console.log("products", products);
   return {
     props: { products },
   };
