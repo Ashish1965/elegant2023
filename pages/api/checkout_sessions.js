@@ -25,13 +25,18 @@ export default async (req, res) => {
       const cart = await Cart.findOne({ user: userId }).populate(
         "products.product"
       );
-      console.log(cart.products[0].product.name);
+     const products = cart.products;
+      const result = products.filter((product) => {
+        return product.product !== null;
+      });
+      // console.log(result);
+      // console.log(userId);
       let price = 0;
-      cart.products.forEach((item) => {
+      result.forEach((item) => {
         price = price + item.quantity * item.product.price;
       });
 
-      const lineItems = cart.products.map((product) => ({
+      const lineItems = result.map((product) => ({
         price_data: {
             currency: 'inr',
             product_data: {
