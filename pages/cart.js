@@ -16,6 +16,10 @@ const Cart = (props) => {
   const router = useRouter();
   const { token } = parseCookies();
   const [cproduct, setCproduct] = useState(products);
+
+  const handleReload = () => {
+    router.reload();
+  };
   
   useEffect(() => {
     // Check to see if this is a redirect back from Checkout
@@ -136,6 +140,7 @@ const Cart = (props) => {
           <div className="flex max-w-screen-2xl items-center justify-center mt-7">
               <button onClick={()=>{
                 handleCheckout();
+                handleReload();
               }} className="flex hover:bg-blue-500 active:scale-95 bg-blue-600 px-10 py-3 rounded-xl text-white font-serif text-xl space-x-3">
                 <p>checkout</p>
                 <p>₹{Price}</p>
