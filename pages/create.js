@@ -44,8 +44,8 @@ const create = () => {
         M.toast({ html: "Please add all the fields", classes: "red" });
       } else {
         M.toast({ html: "Product added successfully", classes: "green" });
+        router.push("/");
       }
-      router.push("/");
     } catch (err) {
       console.log(err);
     }
