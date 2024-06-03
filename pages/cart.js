@@ -20,7 +20,9 @@ const Cart = (props) => {
     const query = new URLSearchParams(window.location.search);
     if (query.get("success")) {
       console.log("Order placed! You will receive an email confirmation.")
-      window.location.reload();
+      router.push("/cart");
+      router.push("/cart");
+      router.push("/cart");
       router.push("/cart");
     }
 
